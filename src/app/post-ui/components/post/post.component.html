@@ -1,7 +1,7 @@
 <div class="card" style="width: 18rem;">
     <div class="card-body">
-        <app-post-header></app-post-header>
+        <post-header title={{this.post.title}} author={{this.post.author}} authorImgSrc={{this.post.authorImgSrc}}></post-header>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <post-footer></post-footer>
     </div>
 </div>

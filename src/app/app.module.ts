@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { RedditFetcherComponent } from './info-fetch/components/reddit-fetcher/reddit-fetcher.component';
 
 
 import { AppRoutingModule } from './app-routing.module';

@@ -1,10 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-post-header',
+  selector: 'post-header',
   templateUrl: './post-header.component.html',
   styleUrls: ['./post-header.component.css']
 })
 export class PostHeaderComponent {
-
+  @Input() title: String = '';
+  @Input() author: String = '';
+  @Input() authorImgSrc: String = '';
+  constructor() { }
 }

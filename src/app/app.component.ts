@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  template: `<info-fetcher-component></info-fetcher-component>`
+  template: ``,
 })
 export class AppComponent {
   title = 'reddit-scrapper';
