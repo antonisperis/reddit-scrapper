@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Injector, ViewChild, ViewContainerRef, createComponent, ApplicationRef, EnvironmentInjector } from '@angular/core';
+import { Component, OnInit, Input, Injector, ViewChild, ViewContainerRef, createComponent, ApplicationRef, EnvironmentInjector, TemplateRef } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Post } from 'src/app/interfaces/post';
@@ -7,64 +7,54 @@ import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-reddit-fetcher',
+  styleUrls: ['./reddit-fetcher.component.css'],
   templateUrl: './reddit-fetcher.component.html',
-  styleUrls: ['./reddit-fetcher.component.css']
+  template: `
+   
+  `
 })
 
 
 
 export class RedditFetcherComponent {
-  @ViewChild('container', { read: ViewContainerRef }) container !: ViewContainerRef;
   // @Input() 
   limit: number = 5;
-  constructor(private http: HttpClient, private injector: EnvironmentInjector) { }
-  setRootViewContainerRef(viewContainerRef: ViewContainerRef) {
-    this.container = viewContainerRef
-  }
+  requestMade: boolean = false;
+  constructor(private http: HttpClient, public container: ViewContainerRef) { }
+  postsArray: Array<Post> = [];
 
   createPostArray(data: any) {
-    let postArray: Array<Post> = [];
+    this.postsArray = [];
     let postsData: any = data["data"]["children"];
     for (let i = 0; i < this.limit; i++) {
       const tempPost: Post =
       {
-        // if(postsData[i]["isGallery"])
-        //continue;
         author: postsData[i]["data"]["author"],
-        authorImgSrc: postsData[i]["data"]["thumbnail"],
+        authorImgSrc: "",
         title: postsData[i]["data"]["title"],
         likes: postsData[i]["data"]["ups"],
         dislikes: postsData[i]["data"]["downs"],
         postText: postsData[i]["data"]["selftext"] || "",
-        // if (postsData[i]["data"]["post_hint"] && postsData[i]["data"]["post_hint"] == "image") {
         postMediaSrc: postsData[i]["data"]["url"] || ""
-        // }
       }
-      postArray.push(tempPost);
+      this.postsArray.push(tempPost);
     }
-    return postArray;
+    return this.postsArray;
   }
   public makeRequest() {
     let headers = new HttpHeaders({});
     this.http.get<any>('https://www.reddit.com/search.json?q=ferrari&sort=new&limit=' + this.limit,
-      { headers: headers }).subscribe(async (data) => {
+      { headers: headers }).subscribe((data) => {
         console.log(data);
 
         const postArray = this.createPostArray(data);
-        // this.container.createComponent(PostProducerComponent, undefined).setInput("posts", postArray);
-        // const applicationRef = await bootstrapApplication(RedditFetcherComponent);
-        // const environmentInjector = applicationRef.injector;
-        const postRef = createComponent(PostProducerComponent, { environmentInjector: this.injector });
-
-        postRef.setInput('posts', postArray);
-
-        // applicationRef.attachView(postRef.hostView);
-        // postRef.changeDetectorRef.detectChanges();
+        this.requestMade = true;
+        // this.container.clear();
+        // this.container.createComponent(PostProducerComponent).setInput("posts", postArray);
 
       });
   }
   ngAfterViewInit() {
-    console.log('epsum');
   }
   ngOnInit(): void {
     // this.makeRequest();

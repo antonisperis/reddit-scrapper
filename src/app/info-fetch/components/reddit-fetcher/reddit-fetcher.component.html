@@ -1,1 +1,15 @@
-<button class="btn btn-primary" (click)="this.makeRequest()">Get a Post</button>
+<div class="container">
+    <div class="row">
+        <div class="col-10">
+            <input class="form-control mr-sm-2 col-10" type="search" placeholder="Search" aria-label="Search">
+        </div>
+        <div class="col-2">
+            <button class="btn my-2 my-sm-0 col-2" (click)="this.makeRequest()"><img width="30" height="30" src="../../../../assets/search.png"></button>
+        </div>
+    </div>
+</div>
+<div>
+    <div *ngIf="this.requestMade">
+        <app-post-producer [posts]="postsArray"></app-post-producer>
+    </div>
+</div>

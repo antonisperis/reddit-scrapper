@@ -1,7 +1,9 @@
-<div class="card" style="width: 18rem;">
+<div class="card col-6" style="width: 18rem; margin-top: 15px;margin-bottom: 15px;">
     <div class="card-body">
         <post-header title={{this.post.title}} author={{this.post.author}} authorImgSrc={{this.post.authorImgSrc}}></post-header>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <post-footer></post-footer>
+        <p class="card-text">{{this.post.postText}}</p>
+        <a href="{{this.post.postMediaSrc}}">{{this.post.postMediaSrc.includes("gallery")?"Gallery: "+this.post.postMediaSrc:""}}</a>
+        <img width="250" height="200" src="{{this.post.postMediaSrc}}" class="float-left" onerror="this.style.display='none'">
+        <post-footer ups={{this.post.likes}} downs={{this.post.dislikes}}></post-footer>
     </div>
 </div>

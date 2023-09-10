@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'post-footer',
@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./post-footer.component.css']
 })
 export class PostFooterComponent {
+  @Input() ups!: string;
+  @Input() downs!: string;
 
 }
