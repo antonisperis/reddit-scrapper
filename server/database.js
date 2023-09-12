@@ -30,6 +30,12 @@ var Database = /** @class */ (function () {
         this.endConnection();
         return allUsersResult;
     };
+    Database.prototype.insertAUser = function (user, callback) {
+        this.connect();
+        var insertUserQuery = "INSERT INTO users (fullname,username,password,email) VALUES ( \"" + user.fullname + "\",\"" + user.username + "\",\"" + user.password + "\",\"" + user.email + "\");";
+        this.dbConnection.query(insertUserQuery, callback);
+        this.endConnection();
+    };
     return Database;
 }());
 exports.Database = Database;

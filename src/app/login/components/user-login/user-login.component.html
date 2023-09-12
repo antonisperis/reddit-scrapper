@@ -9,9 +9,13 @@
                 <label style="padding-left:0 !important;" class="pl-0" for="password">Password</label>
                 <input type="password" name="password" class="form-control inputForm" placeholder="" [formControl]="password">
             </div>
-            <div class="row form-check pt-5" style="padding-left:0 !important;">
-                <div col-6>
-                    <button type="button" (click)="this.isLoggedIn()" name="submit" style="margin-right:-12px !important;" class="btn btn-primary inputButton w-50">Login</button>
+            <div class="row pt-5" style="padding-left:0 !important;">
+                <div class="col-4 p-0">
+                    <button type="button" (click)="this.signupUser.emit()" name="submit" class="btn btn-secondary w-100" style="border-radius: 0%;">Sign Up</button>
+                </div>
+                <div class="col-4 p-0"></div>
+                <div class="col-4 p-0">
+                    <button type="button" (click)="this.isLoggedIn()" name="submit" class="btn btn-primary inputButton w-100">Login</button>
                 </div>
             </div>
         </form>

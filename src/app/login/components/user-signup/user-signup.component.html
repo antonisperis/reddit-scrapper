@@ -1,1 +1,36 @@
-<p>user-signup works!</p>
+<div style="width:100%;height:100%;background-repeat:no-repeat; background-size: cover;">
+    <div id="signUpForm" style="margin-top:10%;" class="container p-4 w-25">
+        <form>
+            <div class="row pt-4">
+                <label style="padding-left:0 !important;" for="username" required>Fullname </label>
+                <input type="text" name="fullname" class="form-control inputForm" placeholder="" [formControl]="fullname">
+            </div>
+            <div class="row pt-4">
+                <label style="padding-left:0 !important;" for="username" required>Username </label>
+                <input type="text" name="username" class="form-control inputForm" placeholder="" [formControl]="username">
+            </div>
+            <div class="row pt-4">
+                <label style="padding-left:0 !important;" for="username" required>E-mail</label>
+                <input type="text" name="e-mail" class="form-control inputForm" placeholder="" [formControl]="email">
+            </div>
+            <div class="row pt-3">
+                <label style="padding-left:0 !important;" class="pl-0" for="password" required>Password</label>
+                <input type="password" name="password" class="form-control inputForm" placeholder="" [formControl]="password">
+            </div>
+            <div class="row pt-3">
+                <label style="padding-left:0 !important;" class="pl-0" for="password" required>Re-entered Password</label>
+                <input type="password" name="ReEnteredPassword" class="form-control inputForm" placeholder="" [formControl]="reEnteredPassword">
+            </div>
+            <div class="row pt-5" style="padding-left:0 !important;">
+                <div class="col-4 p-0">
+                    <button type="button" (click)="this.disableSignUp.emit()" name="submit" class="btn btn-secondary w-100" style="border-radius: 0%;">Cancel</button>
+                </div>
+                <div class="col-4 p-0"></div>
+                <div class="col-4 p-0">
+                    <button type="button" name="button" (click)="this.signUpUser()" class="btn btn-primary inputButton w-100" style="border-radius: 0%;">Sign Up</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>

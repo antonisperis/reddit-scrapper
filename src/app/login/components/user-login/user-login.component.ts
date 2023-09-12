@@ -11,6 +11,7 @@ export class UserLoginComponent {
   username = new FormControl();
   password = new FormControl();
   @Output("loginUser") loginUser: EventEmitter<any> = new EventEmitter();
+  @Output("signupUser") signupUser: EventEmitter<any> = new EventEmitter();
   constructor(private http: HttpClient) {
     // this.isLoggedIn("tony", "1234");
   }

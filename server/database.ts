@@ -31,6 +31,13 @@ class Database {
         this.endConnection();
         return allUsersResult;
     }
+
+    insertAUser(user: any, callback: Object) {
+        this.connect();
+        const insertUserQuery = "INSERT INTO users (fullname,username,password,email) VALUES (" + user.fullname + "," + user.username + "," + user.password + "," + user.email + ");"
+        this.dbConnection.query(insertUserQuery, callback);
+        this.endConnection();
+    }
 }
 
 export { Database };

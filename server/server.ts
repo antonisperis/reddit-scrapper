@@ -35,4 +35,14 @@ app.post("/loginUser", function (req: any, response: any) {
         return;
     });
 });
+
+app.post("/signUpUser", function (req: any, response: any) {
+    const user = req.body;
+    database.insertAUser(user, function (err: any, queryResult: any) {
+        if (err)
+            response.send(err);
+        response.send({ "userSignedUp": true });
+    })
+})
+
 app.listen(5000);

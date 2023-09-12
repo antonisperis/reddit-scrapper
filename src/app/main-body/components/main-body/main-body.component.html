@@ -1,7 +1,8 @@
-<div *ngIf="this.loggedIn" class="row mt-3 d-flex justify-content-center">
+<div *ngIf="this.loggedIn && !this.signUp" class="row mt-3 d-flex justify-content-center">
     <app-left-sidetab class="col-3"></app-left-sidetab>
     <app-reddit-fetcher class="col-5"></app-reddit-fetcher>
     <app-right-sidetab class="col-3"></app-right-sidetab>
 </div>
 
-<app-user-login (loginUser)="this.successfulLogin()" *ngIf="!this.loggedIn"></app-user-login>
+<app-user-login *ngIf="!this.loggedIn && !this.signUp" (loginUser)="this.successfulLogin()" (signupUser)="this.signUpUser()"></app-user-login>
+<app-user-signup *ngIf="this.signUp" (disableSignUp)="this.disableSignUp()"></app-user-signup>
