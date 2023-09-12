@@ -1,0 +1,57 @@
+.inputForm {
+    /* box-shadow: none !important; */
+    border: 0 !important;
+    border-radius: 0 !important;
+    padding-left: 8px !important;
+    background-color: rgba(255, 255, 255, 0.5) !important;
+    border-bottom: 2px solid #ccc !important;
+    cursor: text !important;
+}
+
+.inputForm:focus {
+    border: 0 !important;
+    box-shadow: none;
+    border-bottom: 2px solid blueviolet !important;
+    cursor: text !important;
+}
+
+
+.inputForm:hover {
+    border: 0 !important;
+    box-shadow: none;
+    border-bottom: 2px solid blueviolet !important;
+    cursor: text !important;
+}
+
+
+
+.inputButton {
+    border-radius: 0 !important;
+    background-color: blueviolet;
+    float: right;
+    border: 0;
+
+}
+
+.inputButton:hover {
+    border-radius: 0 !important;
+    background-color: magenta;
+    border: 0;
+    float: right;
+}
+
+.inputButton:active {
+    border-radius: 0 !important;
+    background-color: blueviolet !important;
+    border: 0;
+    float: right;
+}
+
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+    border-color: #D7B1D7;
+    background-color: #D7B1D7;
+}
+
+#clientInsertingForm {
+    margin-top: 25px !important;
+}

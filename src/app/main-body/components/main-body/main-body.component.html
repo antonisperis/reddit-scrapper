@@ -1,0 +1,7 @@
+<div *ngIf="this.loggedIn" class="row mt-3 d-flex justify-content-center">
+    <app-left-sidetab class="col-3"></app-left-sidetab>
+    <app-reddit-fetcher class="col-5"></app-reddit-fetcher>
+    <app-right-sidetab class="col-3"></app-right-sidetab>
+</div>
+
+<app-user-login (loginUser)="this.successfulLogin()" *ngIf="!this.loggedIn"></app-user-login>

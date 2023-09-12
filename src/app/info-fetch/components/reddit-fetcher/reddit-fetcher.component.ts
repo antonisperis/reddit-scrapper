@@ -37,6 +37,8 @@ export class RedditFetcherComponent {
         postText: postsData[i]["data"]["selftext"] || "",
         postMediaSrc: postsData[i]["data"]["url"] || ""
       }
+      if (postsData[i]["data"]["post_hint"] && postsData[i]["data"]["post_hint"] == "link")
+        tempPost.postText += " " + postsData[i]["data"]["url"];
       this.postsArray.push(tempPost);
     }
     return this.postsArray;

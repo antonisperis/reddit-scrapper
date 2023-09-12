@@ -8,7 +8,7 @@ import { RedditFetcherComponent } from '../reddit-fetcher/reddit-fetcher.compone
   selector: 'app-post-producer',
   // templateUrl: './post-producer.component.html',
   styleUrls: ['./post-producer.component.css'],
-  template: `<div >
+  template: `<div style="height: 500px; overflow:scroll-y;"  >
      <div *ngFor="let post of posts">
     <post [post]="post"></post>
   </div>

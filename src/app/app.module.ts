@@ -7,22 +7,28 @@ import { RedditFetcherComponent } from './info-fetch/components/reddit-fetcher/r
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InfoFetchModule } from './info-fetch/info-fetch.module';
-import { PostUiModule } from './post-ui/post-ui.module';
 import { SidetabsUiModule } from './sidetabs-ui/sidetabs-ui.module';
+import { PostUiModule } from './post-ui/post-ui.module';
+import { MainBodyModule } from './main-body/main-body.module';
+import { LoginModule } from './login/login.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    InfoFetchModule,
     PostUiModule,
-    SidetabsUiModule
+    InfoFetchModule,
+    SidetabsUiModule,
+    MainBodyModule,
+    LoginModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
 })
 export class AppModule { }
